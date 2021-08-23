@@ -2,31 +2,37 @@ package main
 
 import (
 	"fmt"
-	"strconv"
 )
 
 func main() {
 
-	fmt.Println("Fizz = 3, Buzz = 5")
+	userInput := ""
+	fmt.Println("This application will test if user input is a palindrome...")
+	fmt.Println("Please enter string to test palindromity...")
 
-	for i := 0; i <= 100; i++ {
-		finalString := ""
+	// Taking input from user
+	fmt.Scanln(&userInput)
 
-		if i%3 == 0 {
-			finalString = "Fizz"
+	fmt.Println("You entered : ", userInput)
+	fmt.Println("Lets check to see if {", userInput, "} is a palindrome....")
+	fmt.Println("Processing")
+	fmt.Println("Processing")
+	fmt.Println("Processing")
+	fmt.Println("Checking the mainframe")
+	fmt.Println("Hacking the blockchain.....")
+	fmt.Println("This is a palindrome is : ", isPalindrome(userInput))
 
-		}
-		if i%5 == 0 {
-			finalString += "Buzz"
+}
 
-		}
-
-		if i%3 != 0 && i%5 != 0 {
-			finalString = strconv.Itoa(i)
-
-		}
-		fmt.Println(finalString)
-
+func isPalindrome(str string) bool {
+	reversedStr := ""
+	for i := len(str) - 1; i >= 0; i-- {
+		reversedStr += string(str[i])
 	}
-
+	for i := range str {
+		if str[i] != reversedStr[i] {
+			return false
+		}
+	}
+	return true
 }
